@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+  route::group (['prefix'=>'admin'], function(){
+    route::resource('users','UsersController');
+  });
