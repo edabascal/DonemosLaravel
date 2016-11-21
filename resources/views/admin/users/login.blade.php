@@ -1,8 +1,6 @@
-@extends('admin.users.main')
+@extends('layouts.app')
 
-@section('Lista de usuarios')
-  <a href="{{route('admin.users.create')}}" class= "btn-btn-info">Registrar un nuevo usurio</a><rf>
-
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -67,5 +65,4 @@
         </div>
     </div>
 </div>
-{!!$users->render!!}
 @endsection

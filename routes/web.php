@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as'=>'admin.index', function () {
     return view('welcome');
-});
+}]);
 
   route::group (['prefix'=>'admin'], function(){
     route::resource('users','UsersController');
+    route::GET('users/{id}/destroy',[
+      'uses'=>'UsersController@destroy',
+      'as'=>'admin.users.destroy'
+    ]);
   });
