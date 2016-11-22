@@ -13,20 +13,19 @@ class CreateCompanyTable extends Migration
      */
     public function up()
     {
-        Schema::create('company', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            //$table->integer('requisition_id')->unsigned();
+            $table->integer('requisition_id');
             $table->rememberToken();
             $table->timestamps();
         });
-//DESCOMENTAS ESTO Y EXPLOTA ALL (NO PUEDO ESCRIBIR 'TO DO') A LA MIERDA PORQUE COMO UN GIL CREE PRIMERO LA TABLA COMPANY Y DESPUES REQUISITION. COMPANY USA REQUISITION... PERO REQUISITION USA COMPANY TAMBIEN Y TIRA ERROR. BEAMMM!
-      // Schema::table('company', function (Blueprint $table) {
-      //       $table->foreign('requisition_id')->references('id')->on('requisition');
-      //   });
+
+
+     //$table->('requisition_id')->references('id')->on('requisition');
+
 
     }
 
@@ -37,6 +36,6 @@ class CreateCompanyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company');
+        Schema::dropIfExists('companies');
     }
 }

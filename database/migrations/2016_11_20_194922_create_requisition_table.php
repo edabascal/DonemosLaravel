@@ -10,20 +10,16 @@ class CreateRequisitionTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */
+     **/
     public function up()
     {
-        Schema::create('requisition', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('requisitions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('TipoDeSangre');
             $table->string('Fecha');
             $table->string('Lugar');
-            $table->integer('company_id')->unsigned();
+            $table->integer('company_id');
             $table->timestamps();
-
-            $table->foreign('company_id')->references('id')->on('company');
-
         });
     }
 
@@ -34,6 +30,6 @@ class CreateRequisitionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requisition');
+        Schema::dropIfExists('requisitions');
     }
 }

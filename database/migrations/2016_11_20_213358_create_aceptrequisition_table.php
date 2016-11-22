@@ -13,20 +13,16 @@ class CreateAceptrequisitionTable extends Migration
      */
     public function up()
     {
-        Schema::create('aceptrequisition', function (Blueprint $table) {
+        Schema::create('aceptrequisitions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->integer('requisition_id')->unsigned();
-            $table->foreign('requisition_id')->references('id')->on('requisition');
+            $table->integer('requisition_id');
             $table->timestamps();
         });
 
-        Schema::create('aceptrequisition_user', function (Blueprint $table) {
-            $table->integer('aceptrequisition_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-
-            $table->foreign('aceptrequisition_id')->references('id')->on('aceptrequisition');
-            $table->foreign('user_id')->references('id')->on('user');
+        Schema::create('aceptrequisitions_users', function (Blueprint $table) {
+            $table->integer('aceptrequisition_id');
+            $table->integer('user_id');
         });
     }
 
@@ -37,6 +33,7 @@ class CreateAceptrequisitionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aceptrequisition');
+        Schema::dropIfExists('aceptrequisitions');
+        Schema::dropIfExists('aceptrequisitions_users');
     }
 }
