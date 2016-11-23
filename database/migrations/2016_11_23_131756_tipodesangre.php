@@ -4,21 +4,18 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRequisitionTable extends Migration
+class Tipodesangre extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
-     **/
+     */
     public function up()
     {
-        Schema::create('requisitions', function (Blueprint $table) {
+        Schema::create('tipodesangre', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tipodesangre');
-            $table->string('fecha');
-            $table->string('lugar');
-            $table->integer('company_id');
+            $table->string('factor');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateRequisitionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requisitions');
+        Schema::dropIfExists('tipodesangre');
     }
 }
