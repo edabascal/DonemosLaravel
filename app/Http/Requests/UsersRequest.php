@@ -24,7 +24,11 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'        => 'min:4|max:120|require',
+            'Email'       => 'min:4|max:240|unique:users',
+            'Password'    => 'min:4|max"10|require',
+            'TipoDeSangre'=> 'require'
+
         ];
     }
 }

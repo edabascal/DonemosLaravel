@@ -22,3 +22,7 @@ Route::get('/', ['as'=>'admin.index', function () {
       'as'=>'admin.users.destroy'
     ]);
   });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
