@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UsersRequest;
+use app\ests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -30,7 +32,7 @@ class UsersController extends Controller
 
           return view('admin.user.edit')->with('user', $user);
     }
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         $user= User::find($id);
         $user->name = $request->name;

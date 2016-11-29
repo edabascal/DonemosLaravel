@@ -1,7 +1,7 @@
 @extends('admin.users.main')
 
 @section('Lista de usuarios')
-  <a href="{{route('admin.users.create')}}" class= "btn-btn-info">Registrar un nuevo usurio</a><rf>
+  <a href="{{route('admin.user.create')}}" class= "btn-btn-info">Registrar un nuevo usurio</a><rf>
 
 <div class="container">
     <div class="row">
